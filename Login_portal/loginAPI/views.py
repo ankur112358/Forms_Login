@@ -3,11 +3,14 @@ from .models import User
 from .forms import UserForm
 
 # Create your views here.
+def route(request):
+    print(request.data)
+    return redirect('/user')
 def user(request):
     print('user method called',)
     if request.method=='POST':
         form = UserForm(request.POST)
-        print('hello ankur',form.is_valid())
+        # print('hello ankur',form.is_valid())
         if form.is_valid():
             try:
                 print('inside try')
@@ -18,7 +21,7 @@ def user(request):
                 pass
     else:
         form=UserForm()
-        print(form)
+        print('returning the form')
     return render(request,'index.html',{'form':form})
 def show(request):
     users=User.objects.all

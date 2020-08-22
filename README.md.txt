@@ -1,0 +1,1 @@
+This is a project to test out the implemantation of django forms. It is an web application - user registration portal.
